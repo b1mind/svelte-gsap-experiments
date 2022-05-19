@@ -24,5 +24,8 @@
     "svelte-check": "^2.2.6",
     "typescript": "~4.6.2"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "gsap": "^3.10.4"
+  }
 }

@@ -1,21 +1,22 @@
 <script>
-  import { fly, slide } from 'svelte/transition'
+  import { animateFrom, animateTo } from '$lib/gsapActions.js'
 
   export let urlProp
 </script>
 
 {#key urlProp}
   <div
-    in:fly={{ x: -100, duration: 2050, delay: 300 }}
-    out:fly={{ x: -100, duration: 2050 }}
+    class="intro"
+    in:animateFrom={{ x: 300, opacity: 0 }}
+    out:animateTo={{ x: -300, opacity: 0 }}
   >
     <slot />
   </div>
 {/key}
 
 <style>
-  div {
-    position: absolute;
+  .intro {
+    /* position: absolute; */
     grid-area: l;
   }
 </style>

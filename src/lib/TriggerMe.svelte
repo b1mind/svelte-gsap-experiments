@@ -28,21 +28,6 @@
     console.log('destroy or not to destroy that is the question')
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
   })
-
-  // function timelineActive(node) {
-  //   tl.to(node, {
-  //     duration,
-  //     x: 300,
-  //     scrollTrigger: {
-  //       target: node,
-  //       pin: '.timeline',
-  //       scrub: 1,
-  //       markers: true,
-  //       start: 'center center',
-  //       end: '+=3000 center',
-  //     },
-  //   })
-  // }
 </script>
 
 <header class="timeline" bind:this={target}>
