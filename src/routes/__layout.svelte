@@ -15,15 +15,18 @@
 </nav>
 
 <main>
-  <Transition urlProp={url}>
-    <slot />
-  </Transition>
+  <div>
+    <Transition {url}>
+      <slot />
+    </Transition>
+  </div>
 </main>
+<div />
+<div />
 
 <style>
   :global(body) {
     margin: 0;
-    height: 300vh;
     background: #1b1b1b;
   }
 
@@ -31,8 +34,7 @@
     margin: 0;
   }
 
-  main {
-    position: relative;
+  div {
     min-height: 100vh;
     display: grid;
     grid-template-areas: 'l';

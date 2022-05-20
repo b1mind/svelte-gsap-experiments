@@ -1,18 +1,26 @@
 <script>
   import { animateFrom, animateTo } from '$lib/gsapActions.js'
+  import { onMount } from 'svelte'
 
-  export let urlProp
+  export let url
+  let first = true
+
+  onMount(() => {
+    first = false
+  })
 </script>
 
-{#key urlProp}
-  <div
-    class="intro"
-    in:animateFrom={{ x: 300, opacity: 0 }}
-    out:animateTo={{ x: -300, opacity: 0 }}
-  >
+{#if first}
+  <div class="intro" use:animateFrom={{ rotate: 360 }}>
     <slot />
   </div>
-{/key}
+{:else}
+  {#key url}
+    <div class="intro" in:animateFrom out:animateTo>
+      <slot />
+    </div>
+  {/key}
+{/if}
 
 <style>
   .intro {
