@@ -4,7 +4,8 @@
 </script>
 
 <script>
-  import Transition from '/src/lib/Transition.svelte'
+  import Transition from '$lib/Transition.svelte'
+  import TriggerMe from '$lib/TriggerMe.svelte'
 
   export let url
 </script>
@@ -21,17 +22,34 @@
     </Transition>
   </div>
 </main>
-<div />
-<div />
+
+<div>
+  <TriggerMe>
+    <p>test</p>
+    <p>test2</p>
+  </TriggerMe>
+</div>
+
+<div>
+  <TriggerMe>
+    <p>test</p>
+    <p>test2</p>
+  </TriggerMe>
+</div>
 
 <style>
   :global(body) {
     margin: 0;
+    color: #c1e1c1;
     background: #1b1b1b;
   }
 
   :global(p) {
     margin: 0;
+  }
+
+  a {
+    color: #c1e1c1;
   }
 
   div {

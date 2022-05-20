@@ -1,34 +1,26 @@
 <script>
-  import { onMount, onDestroy } from 'svelte'
-
   import { gsap } from 'gsap'
   import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
   gsap.registerPlugin(ScrollTrigger)
 
-  let target
   const duration = 1
 
-  onMount(() => {
+  function useMe(node) {
     const tl = gsap.timeline({})
-    return tl.from(target.children, {
+    tl.from(node.children, {
       duration,
       opacity: 0,
       stagger: 1,
       scrollTrigger: {
-        pin: target.parentElement,
+        pin: node.parentElement,
         scrub: 1,
         markers: true,
       },
     })
-  })
-
-  onDestroy(() => {
-    console.log('destroy or not to destroy that is the question')
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-  })
+  }
 </script>
 
-<div bind:this={target}>
+<div use:useMe>
   <slot />
 </div>
 

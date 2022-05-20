@@ -3,6 +3,10 @@
   import { onMount } from 'svelte'
 
   export let url
+  const animation = {
+    rotate: 360,
+    stagger: 0.5,
+  }
   let first = true
 
   onMount(() => {
@@ -11,12 +15,12 @@
 </script>
 
 {#if first}
-  <div class="intro" use:animateFrom={{ rotate: 360 }}>
+  <div class="intro" use:animateFrom={{ ...animation }}>
     <slot />
   </div>
 {:else}
   {#key url}
-    <div class="intro" in:animateFrom out:animateTo>
+    <div class="intro" in:animateFrom={{ ...animation }} out:animateTo>
       <slot />
     </div>
   {/key}

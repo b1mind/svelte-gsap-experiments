@@ -19,8 +19,7 @@ export function animateFrom(node, { ...args }) {
   const tl = gsap.timeline({})
   console.dir(node)
   tl.fromTo(node, { opacity: 0, x: 600 }, { opacity: 1, x: 0 })
-  tl.from(node, {
-    stagger: 0.5,
+  tl.from(node.children, {
     scrollTrigger: {
       pin: node.parentNode,
       scrub: true,
